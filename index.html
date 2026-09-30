@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Квартира 47,57 м²</title>
+<style>
+/* Layout: альбом проекта — шапка с паспортом квартиры, затем комнаты крупными листами, чередуя сторону подписи. */
+:root{
+  --bg:#eef0ee; --paper:#f9faf8; --ink:#17222b; --muted:#5b6872; --line:rgba(23,34,43,.14);
+  --accent:#5f7f6e; --accent-ink:#ffffff;
+  --display:'Unbounded','Golos Text',system-ui,sans-serif; --body:'Golos Text',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171b; --paper:#1a2026; --ink:#e9eef0; --muted:#9aa6ae; --line:rgba(233,238,240,.16);
+  --accent:#9cc0ab; --accent-ink:#10201a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171b; --paper:#1a2026; --ink:#e9eef0; --muted:#9aa6ae; --line:rgba(233,238,240,.16);
+  --accent:#9cc0ab; --accent-ink:#10201a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body)}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:40px 64px;display:flex;flex-direction:column;gap:56px}
+header{display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font:500 clamp(26px,5vw,44px)/1.12 var(--display);margin:0;text-wrap:balance}
+.lead{max-width:62ch;color:var(--muted);margin:0}
+.passport{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line)}
+.passport div{padding:14px 12px 14px 0;border-bottom:1px solid var(--line)}
+.passport dt{font-size:12px;color:var(--muted)}
+.passport dd{margin:2px 0 0;font:500 18px/1.3 var(--display);font-variant-numeric:tabular-nums}
+.cta{align-self:flex-start;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:12px 18px;border-radius:6px}
+.cta:focus-visible,.room button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.rooms{display:flex;flex-direction:column;gap:48px}
+.room{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:24px;align-items:end}
+.room:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,3fr)}
+.room:nth-child(even) .pic{order:2}
+.room button{all:unset;display:block;cursor:zoom-in;width:100%}
+.room img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;background:var(--paper)}
+.room h2{font:500 20px/1.2 var(--display);margin:0 0 6px}
+.room .area{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600}
+.room p{margin:8px 0 0;color:var(--muted);font-size:14.5px;min-width:0}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 0;border-bottom:1px solid var(--line)}
+td:last-child,th:last-child{text-align:right}
+th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tfoot td{font-weight:600;border-bottom:0}
+section h3{font:500 18px/1.2 var(--display);margin:0 0 12px}
+.note{font-size:13.5px;color:var(--muted);max-width:70ch;margin:0}
+#lb{position:fixed;inset:0;background:rgba(10,14,17,.92);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out;z-index:10}
+#lb img{max-width:100%;max-height:100%;border-radius:4px}
+@media (max-width:700px){.room,.room:nth-child(even){grid-template-columns:1fr;gap:12px}.room:nth-child(even) .pic{order:0}}
+</style>
+</head><body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Дизайн-проект · эскизный план организации пространства 3</div>
+    <h1>Квартира 47,57 м²</h1>
+    <p class="lead">Эскизные визуализации шести помещений в скандинавском стиле: светлый дуб, тёплый белый, шалфейный текстиль. Расстановка мебели повторяет планировочное решение.</p>
+    <dl class="passport">
+      <div><dt>Общая площадь</dt><dd>47,57 м²</dd></div>
+      <div><dt>Помещений</dt><dd>6</dd></div>
+      <div><dt>Стиль</dt><dd>Скандинавский</dd></div>
+      <div><dt>Стадия</dt><dd>Эскиз</dd></div>
+    </dl>
+    <a class="cta" href="model.html">Открыть 3D-модель квартиры</a>
+  </header>
+
+  <div class="rooms" id="rooms"></div>
+
+  <section>
+    <h3>Экспликация помещений</h3>
+    <table>
+      <thead><tr><th>Помещение</th><th>S, м²</th></tr></thead>
+      <tbody>
+        <tr><td>Прихожая</td><td>5,30</td></tr><tr><td>Кухня</td><td>13,19</td></tr><tr><td>Спальня</td><td>10,81</td></tr>
+        <tr><td>Детская</td><td>9,20</td></tr><tr><td>Гардероб</td><td>4,29</td></tr><tr><td>Ванная</td><td>4,76</td></tr>
+      </tbody>
+      <tfoot><tr><td>Итого</td><td>47,57</td></tr></tfoot>
+    </table>
+  </section>
+
+  <p class="note">Изображения — эскизные визуализации для согласования общего настроения, материалов и цветовой гаммы. Декор, светильники и отдельные детали отделки показаны условно и уточняются на стадии рабочего проекта.</p>
+</div>
+<div id="lb" hidden><img alt=""></div>
+
+<script>
+var R=[
+ ['Спальня','10,81','v2_1_spalnya.jpg','Кровать 1700×2100 с мягким изголовьем, две прикроватные тумбы, комод вдоль стены.'],
+ ['Кухня','13,19','v2_2_kuhnya.jpg','Линейная кухня с духовым шкафом, варочной панелью и мойкой, круглый стол на шесть мест.'],
+ ['Детская','9,20','v2_3_detskaya.jpg','Кровать, стеллаж с полками, шкаф и диванчик с местом для игрушек.'],
+ ['Гардероб','4,29','v2_4_garderob.jpg','Система хранения от пола до потолка: штанги, полки, ящики, подсветка.'],
+ ['Прихожая','5,30','v2_5_prihozhaya.jpg','Зеркало в пол с подсветкой, открытая вешалка и пуф, плитка на полу.'],
+ ['Ванная','4,76','v2_6_vannaya.jpg','Ванна 1700, унитаз, тумба с раковиной и зеркалом.']
+];
+var box=document.getElementById('rooms'), lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+R.forEach(function(r){
+  var a=document.createElement('article'); a.className='room';
+  a.innerHTML='<div class="pic"><button type="button" aria-label="Увеличить: '+r[0]+'"><img loading="lazy" src="'+r[2]+'" alt="'+r[0]+', визуализация"></button></div>'+
+   '<div><h2>'+r[0]+'</h2><div class="area">'+r[1]+' м²</div><p>'+r[3]+'</p></div>';
+  a.querySelector('button').addEventListener('click',function(){lbi.src=r[2];lbi.alt=r[0];lb.hidden=false});
+  box.appendChild(a);
+});
+lb.addEventListener('click',function(){lb.hidden=true});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true});
+</script>
+
+</body></html>
